@@ -1,0 +1,293 @@
+@font-face{
+    font-family: "Josefin Sans";
+    src: url('./JosefinSans-Regular.ttf'), format(ttf);
+}
+:root{
+    /* primary styles */
+    --primary-blue: hsl(220, 98%, 61%);
+    --checked-gradient: linear-gradient( to right, hsl(192, 100%, 67%), hsl(280, 87%, 65%));
+    
+    /* light mode styles */
+    --light-gray1: hsl(0, 0%, 98%);
+    --very-light-grayish-blue1: hsl(236, 33%, 92%);
+    --light-grayish-blue1: hsl(233, 11%, 84%);
+    --dark-grayish-blue1: hsl(236, 9%, 61%);
+    --very-dark-grayish-blue1: hsl(235, 19%, 35%);
+
+    /* dark mode styles */
+    --very-dark-blue2: hsl(235, 21%, 11%);
+    --very-dark-desaturated-blue2: hsl(235, 24%, 19%);
+    --light-grayish-blue2: hsl(234, 39%, 85%);
+    --light-grayish-blue-hover: hsl(236, 33%, 92%);
+    --dark-grayish-blue2: hsl(234, 11%, 52%);
+    --very-dark-grayish-blue2: hsl(233, 14%, 35%);
+    --very-dark-grayish-blue: hsl(237, 14%, 26%);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    transition: all 0.5s ease;
+    font-family: 'Josefin Sans';
+    font-size: 18px;
+    color: var(--light-gray1);
+}
+body.dark{
+    background: var(--very-dark-blue2);
+}
+header.largeHeader{
+    position: absolute;
+    top: 0;
+    height: 40vh;
+    width: 100%;
+    background-image: url('../images/bg-desktop-light.jpg');
+    background-size: cover;
+    z-index: -1;
+}
+body.dark header.largeHeader{
+    background: url('../images/bg-desktop-dark.jpg');
+}
+.mainContent{
+    width: 33%;
+    margin: auto;
+    margin-top: 4em;
+}
+.mainContent header{
+    display: flex;
+    align-items: center;
+    justify-content:space-between;
+    margin-bottom: 2em;
+}
+.mainContent header a{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+    display: flex;
+    padding: 7px;
+    align-items: center;
+    justify-content: center;
+}
+.mainContent .inputDiv{
+    transition: all 0.3s ease;
+    padding: 0 20px;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    background: var(--light-gray1);
+    box-shadow: 0px 2px 10px rgba(160, 160, 160, 0.774);
+}
+body.dark .mainContent .inputDiv{
+    background: var(--very-dark-desaturated-blue2);
+    box-shadow: 0px 2px 10px rgba(14, 14, 14, 0.774);
+}
+.mainContent .inputDiv:hover{
+    background: var(--light-grayish-blue-hover);
+}
+body.dark .mainContent .inputDiv:hover{
+    background: var(--very-dark-blue2);
+}
+.inputDiv .custom-checkbox-container{
+    width: 8%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+.custom-checkbox{
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--light-grayish-blue1);
+    transition: all .5s ease;
+}
+.custom-checkbox:hover,
+body.dark .custom-checkbox{
+    border: 2px solid var(--very-dark-grayish-blue1);
+}
+body.dark .custom-checkbox:hover{
+    border: 2px solid white;
+}
+.custom-checkbox.checked{
+    background: var(--checked-gradient);
+}
+.custom-checkbox input{
+    opacity: 0;
+    width: 0;
+    pointer-events: none;
+}
+.custom-checkbox img{
+    width: 60%;
+    display: none;
+    margin: auto;
+}
+.custom-checkbox.checked img{
+    display: block;
+}
+.inputDiv input[type = 'text'], 
+.inputDiv p{
+    padding: 1.2em;
+    width: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    appearance: none;
+    font-size: 16px;
+    font-family: inherit;
+    color: var(--very-dark-blue2);
+    opacity: 0.7;
+}
+.inputDiv form{
+    width: 100%;
+}
+
+body.dark .inputDiv p{
+    color: var(--light-gray1);
+}
+body.dark .inputDiv input[type = 'text']{
+    color: var(--light-gray1);
+}
+.inputDiv input[type = 'text']::placeholder{
+    color: var(--very-dark-blue2);
+    opacity: 0.8;
+}
+body.dark .inputDiv input[type = 'text']::placeholder{
+    color: white;
+}
+.mainContent h1{
+    letter-spacing: 0.2em;
+}
+.todo-items-container{
+    margin-top: 2em;
+    background: var(--light-gray1);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: 0px 15px 20px rgba(167, 167, 167, 0.801);
+}
+body.dark .todo-items-container{
+    box-shadow: 0px 15px 20px rgba(19, 16, 24, 0.801);
+    background: var(--very-dark-desaturated-blue2);
+}
+.inputDiv.todo-item.done p{
+    color: var(--dark-grayish-blue2);
+    text-decoration: line-through;
+}
+.todo-item img{
+    width: 16px;
+}
+.mainContent .todo-items-container .inputDiv {
+    border-radius: 0;
+    box-shadow: none;
+    border-bottom: 1px solid lightgray;
+    cursor: grabbing;
+}
+
+body.dark .mainContent .todo-items-container .inputDiv{
+    border-bottom-color: var(--dark-grayish-blue2);
+    box-shadow: none;
+}
+.mainContent footer{
+    display: flex;
+    font-size: 14px;
+    padding: 20px;
+    align-items: center;
+    justify-content: space-between;
+    color:var(--dark-grayish-blue1);
+}
+.mainContent footer li,
+.mobile-only li {
+    list-style: none;
+    float: left;
+    cursor: pointer;
+}
+footer li{
+    margin-right: 10px;
+}
+.mobile-only.inputDiv{
+    display: none;
+}
+.mainContent footer li.active{
+    color: var(--primary-blue);
+    font-weight: bold;
+}
+body.dark p.bottom{
+    color: var(--light-grayish-blue1);
+}
+.attribution, p.bottom{
+    bottom: 15px;
+    position: absolute;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    color: var(--very-dark-blue2);
+}
+.remove-todo-icon-container{
+    opacity: 0;
+    height: 40px;
+    width: 40px;
+    align-items: center;
+    justify-content: flex-end;
+    display: flex;
+    cursor: pointer;
+    transition: inherit;
+}
+.todo-item:hover .remove-todo-icon-container{
+    opacity: 1;
+}
+@media screen and (max-width: 500px){
+    body{
+        font-size: 15px;
+    }
+    .mainContent{
+        width: 90%;
+        margin-top: 3em;
+    }
+    header.largeHeader{
+        background: url('../images/bg-mobile-light.jpg');
+        height: 25vh;
+        background-size: cover;
+    }
+    body.dark header.largeHeader{
+        background: url('../images/bg-mobile-dark.jpg');
+        background-size: cover;
+    }
+    .todo-items-container{
+        box-shadow: 0px 10px 20px rgba(167, 167, 167, 0.541);
+        margin-top: 1em;
+    }
+    .inputDiv .custom-checkbox-container{
+        width: auto;
+    }
+    .inputDiv.todo-item .remove-todo-icon-container{
+        opacity: 1;
+    }
+    .remove-todo-icon-container img{
+        width: 14px;
+    }
+    footer ul,
+    p.bottom{
+        display: none;
+    }
+    .mobile-only{
+        margin-top: 1.5em;
+        padding: 20px!important;
+        display: block!important;
+    }
+    .mobile-only div{
+        margin: auto;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 65%;
+        color: var(--very-dark-blue2);
+        opacity: 0.7;
+    }
+    body.dark .mobile-only div{
+        color: var(--light-gray1);
+    }
+}
