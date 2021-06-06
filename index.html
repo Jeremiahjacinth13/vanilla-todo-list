@@ -8,6 +8,9 @@
   
   <title>Frontend Mentor | Todo app</title>
   <link rel="stylesheet" href="./styles/index.css">
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@100;400&display=swap');
+  </style>
 
   <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
   <style>
