@@ -237,7 +237,7 @@ body.dark p.bottom{
 }
 @media screen and (max-width: 500px){
     body{
-        font-size: 15px;
+        font-size: 14px;
     }
     .mainContent{
         width: 90%;
